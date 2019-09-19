@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">  
+  <head>
+    <meta charset="UTF-8">
+    <title>DDD WebSockets Demo</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/feather-icons"></script>
+  </head>
+
+  <body>
+    <header>
+      <h1>     
+        <span>DDD Sydney Feed</span>
+      </h1>
+    </header>
+
+    <div id="feed">
+      <form>
+        <input id="name" type="text" placeholder="Name" />
+        <input id="message" type="text" placeholder="Tell me your deepest darkest secrets pls" />
+        <button type="submit">
+          Post
+          <i data-feather="send"></i>
+        </button>
+      </form>
+
+      <ul></ul>
+    </div>
+    
+    <script>feather.replace()</script>
+    <script src="client.js"></script>
+  </body>
+</html>
