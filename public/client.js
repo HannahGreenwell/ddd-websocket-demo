@@ -19,7 +19,9 @@
       author,
       content
     };
-    console.log('Message', message);
+    const messageString = JSON.stringify(message);
+    websocket.send(messageString);
+    console.log('Message sent: ', message);
     messageField.value = '';
     return false;
   });
@@ -27,6 +29,14 @@
   // WebSocket events
   websocket.addEventListener('open', function(event) {
     console.log('Connected to the WebSocket server');
+  });
+
+  websocket.addEventListener('message', function(event) {
+    const message = JSON.parse(event.data);
+    console.log('Message received: ', message);
+    const newListItem = document.createElement('li');
+    messageList.insertBefore(newListItem, messageList.childNodes[0]);
+    newListItem.innerHTML = `<span>${message.author}:</span> ${message.content}`;
   });
 
 }());

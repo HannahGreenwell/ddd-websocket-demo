@@ -21,6 +21,14 @@ const websocketServer = new WS.Server({ server: httpServer });
 websocketServer.on('connection', function(websocket) {
   console.log('A user connected');
 
+  websocket.on('message', function(message) {
+    const parsedMessage = JSON.parse(message);
+    console.log('Message received: ', parsedMessage);
+    websocketServer.clients.forEach(function(client) {
+      client.send(message);
+    });
+  });
+
   websocket.on('close', function(code) {
     console.log('User disconnected');
     console.log('Close code: ', code);
