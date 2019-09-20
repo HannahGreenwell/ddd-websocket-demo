@@ -14,7 +14,7 @@
   const websocket = new WebSocket(HOST);
 
   // HTML events
-  form.addEventListener('submit', function(event) {
+  form.addEventListener('submit', (event) => {
     event.preventDefault();
     const author = nameField.value;
     const content = messageField.value;
@@ -30,11 +30,15 @@
   });
 
   // WebSocket events
-  websocket.addEventListener('open', function(event) {
+  websocket.addEventListener('open', (event) => {
     console.log('Connected to the WebSocket server');
   });
 
-  websocket.addEventListener('message', function(event) {
+  websocket.addEventListener('close', (event) => {
+    console.log('Disconnected from the WebSocket server');
+  });
+
+  websocket.addEventListener('message', (event) => {
     const message = JSON.parse(event.data);
     console.log('Message received: ', message);
     const newListItem = document.createElement('li');

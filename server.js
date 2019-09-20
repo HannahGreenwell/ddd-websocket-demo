@@ -18,24 +18,24 @@ const httpServer = http.createServer(app);
 const websocketServer = new WS.Server({ server: httpServer });
 
 // WebSocket events
-websocketServer.on('connection', function(websocket) {
+websocketServer.on('connection', (websocket) => {
   console.log('A user connected');
 
-  websocket.on('message', function(message) {
+  websocket.on('message', (message) => {
     const parsedMessage = JSON.parse(message);
     console.log('Message received: ', parsedMessage);
-    websocketServer.clients.forEach(function(client) {
+    websocketServer.clients.forEach((client) => {
       client.send(message);
     });
   });
 
-  websocket.on('close', function(code) {
+  websocket.on('close', (code) => {
     console.log('User disconnected');
     console.log('Close code: ', code);
   });
 });
 
 // Start the server
-httpServer.listen(PORT, function() {
+httpServer.listen(PORT, () => {
   console.log(`Listening on ${PORT}`);
 });
