@@ -11,7 +11,7 @@
   const websocket = new WebSocket('ws://localhost:3000');
 
   // HTML events
-  form.addEventListener('submit', function(event) {
+  form.addEventListener('submit', (event) => {
     event.preventDefault();
     const author = nameField.value;
     const content = messageField.value;
@@ -25,7 +25,7 @@
   });
 
   // WebSocket events
-  websocket.addEventListener('open', function(event) {
+  websocket.addEventListener('open', (event) => {
     console.log('Connected to the WebSocket server');
   });
 
