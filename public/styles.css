@@ -11,7 +11,7 @@ body {
 }
 
 header {
-  border-bottom: solid 1px grey;
+  border-bottom: solid 1px lightgrey;
   padding: 2rem 1.5rem 1rem;
 }
 
@@ -25,18 +25,15 @@ h1 span {
 }
 
 form {
-  border-bottom: solid 1px grey;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1.5rem;
+  border-bottom: solid 1px lightgrey;
+  padding: 0.75rem 1.5rem 1rem;
 }
 
 input {
   display: inline-block;
   font-size: 1rem;
   border: none;
-  border-bottom: solid 1px grey;
+  border-bottom: solid 1px lightgrey;
   padding: 0.75rem 0.25rem;
   margin-right: 1.5rem;
 }
@@ -46,15 +43,17 @@ input#name {
 }
 
 input#message {
-  width: 70%;
+  width: 100%;
+  margin-top: 0.75rem;
 }
 
 button {
   font-size: 0.85rem;
-  border: solid 1px grey;
+  border: solid 1px lightgrey;
   padding: 0.5rem 1rem;
-  display: flex;
+  display: inline-flex;
   align-items: center;
+  margin-top: 1.25rem;
 }
 
 svg {
@@ -74,6 +73,23 @@ li {
 }
 
 li span {
-  font-weight: bold;
-  padding-right: 0.5rem;
+  font-weight: 600;
+}
+
+@media (min-width: 600px) {
+  form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+  }
+
+  input#message {
+    width: 70%;
+    margin-top: 0;
+  }
+
+  button {
+    margin-top: 0;
+  }
 }
