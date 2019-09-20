@@ -29,4 +29,8 @@
     console.log('Connected to the WebSocket server');
   });
 
+  websocket.addEventListener('close', (event) => {
+    console.log('Disconnected from the WebSocket server');
+  });
+
 }());
