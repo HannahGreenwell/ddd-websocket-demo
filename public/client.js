@@ -6,9 +6,12 @@
   const messageField = document.querySelector('input#message');
   const messageList = document.querySelector('ul');
 
+  // Create a dynamic host variable for deployment to Heroku
+  const HOST = location.origin.replace(/^http/, 'ws')
+
   // Construct a WebSocket object that will create and
   // manage the connection to the WebSocket server
-  const websocket = new WebSocket('ws://localhost:3000');
+  const websocket = new WebSocket(HOST);
 
   // HTML events
   form.addEventListener('submit', function(event) {
